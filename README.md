@@ -1,3 +1,38 @@
+# My vaultwarden backup script
+
+Adapted from [jjlin/vaultwarden-backup](https://github.com/jjlin/vaultwarden-backup).
+
+## Depends on
+
+* `sqlite3` - to backup online database
+* `age` - encryption with a public key (set it in `AGE_PUB` in your `backup.conf`)
+* `7z` - sane archive
+* `findutils` - to delete old files
+* `rclone` - to upload to the cloud
+* `systemd` - for timer
+
+## Usage
+
+Write your backup.conf from a [template](backup.conf.template).
+
+### Running directly
+
+```sh
+./backup.sh backup.conf
+```
+
+### From systemd timer
+
+1. Edit paths inside `.service`, `.timer` files.
+2. Copy them to `~/.config/systemd/user`
+3. `systemctl --user enable vault-backup.timer`
+
+It will run every 3h.
+
+---
+
+# Original readme
+
 ## Overview
 
 **Note: Vaultwarden was formerly known as bitwarden_rs.**
