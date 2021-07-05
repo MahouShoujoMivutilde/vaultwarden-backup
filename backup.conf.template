@@ -1,7 +1,6 @@
 #!sh
 
-GPG_CIPHER_ALGO=AES128
-GPG_PASSPHRASE='hunter2'
+AGE_PUB=''
 
 RCLONE_DESTS=(
     # Backblaze B2 (https://rclone.org/b2/)
@@ -9,3 +8,10 @@ RCLONE_DESTS=(
     # Oracle Cloud Infrastructure (https://docs.oracle.com/en/solutions/move-data-to-cloud-storage-using-rclone/)
     oci:vaultwarden
 )
+
+VAULTWARDEN_ROOT=/docker/vaultwarden
+DATA_DIR="data"
+
+BACKUP_DIR_NAME="vaultwarden-$(date '+%Y%m%d-%H%M')"
+
+DB_FILE="db.sqlite3"
