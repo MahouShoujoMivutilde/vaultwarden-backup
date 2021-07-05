@@ -1,0 +1,10 @@
+[Unit]
+Description=vaultwarden storage backup
+Wants=vault-backup.timer
+
+[Service]
+Type=simple
+ExecStart=/docker/vaultwarden/backup/backup.sh /docker/vaultwarden/backup/backup.conf
+
+[Install]
+WantedBy=default.target

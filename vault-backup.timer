@@ -1,0 +1,11 @@
+[Unit]
+Description=vaultwarden storage backup timer
+PartOf=vault-backup.timer
+
+[Timer]
+OnUnitActiveSec=3h
+OnStartupSec=1m
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target
